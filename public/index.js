@@ -5,3 +5,30 @@ const app = function(){
 };
 
 window.addEventListener('load', app);
+
+const makeRequest = function(api, callback){
+  const request = new XMLHttpRequest();
+  //open up a request.
+  request.open("GET", api);
+  //say what you want to do when we get a response.
+  request.addEventListener("load", callback)
+  //tell it to run.
+  request.send();
+};
+
+const requestComplete = function(){
+  if(this.status !== 200) return;
+    const jsonString = this.responseText;
+    const beers = JSON.parse(jsonString);
+    displayBeers(beers);
+    console.log(beers);
+};
+
+const displayBeers = function(beers){
+  const ul = document.querySelector("#beer-list");
+  for(beer of beers){
+    const li = document.createElement('li');
+    li.innerText = beer.name;
+    ul.appendChild(li);
+  };
+};
