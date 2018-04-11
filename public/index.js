@@ -28,7 +28,8 @@ const displayBeers = function(beers){
   const ul = document.querySelector("#beer-list");
   for(beer of beers){
     const li = document.createElement('li');
+    const img = document.createElement('img');
     li.innerText = beer.name;
-    ul.appendChild(li);
+    ul.appendChild(li1);
   };
 };
