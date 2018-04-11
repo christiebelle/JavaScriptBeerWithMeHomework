@@ -21,7 +21,6 @@ const requestComplete = function(){
     const jsonString = this.responseText;
     const beers = JSON.parse(jsonString);
     displayBeers(beers);
-    console.log(beers);
 };
 
 const displayBeers = function(beers){
@@ -30,6 +29,8 @@ const displayBeers = function(beers){
     const li = document.createElement('li');
     const img = document.createElement('img');
     li.innerText = beer.name;
-    ul.appendChild(li1);
+    img.src = beer.image_url;
+    li.appendChild(img);
+    ul.appendChild(li);
   };
 };
